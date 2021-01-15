@@ -1,28 +1,37 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import { Provider as StyletronProvider, DebugEngine } from "styletron-react";
 import { Client as Styletron } from "styletron-engine-atomic";
-import HomePage from './pages/HomePage';
-
 import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
-import ProductPage from './pages/ProductPage';
+import ShopProvider from './context/shopContext'
 
-const debug =
-  process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();
+import HomePage from './pages/HomePage'
+import ProductPage from './pages/ProductPage'
+import Navbar from './components/Navbar'
+import Cart from './components/Cart'
 
-// 1. Create a client engine instance
+const debug = process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();
 const engine = new Styletron();
 
-function App() {
+
+const App = () => {
   return (
-    <StyletronProvider value={engine} debug={debug} debugAfterHydration>
-      <Router>
-        <Route path="">
-          <ProductPage></ProductPage>
-        </Route>
-      </Router>
-    <App />
-  </StyletronProvider>
+    <ShopProvider>
+      <StyletronProvider value={engine} debug={debug} debugAfterHydration>
+        <Router>
+          <Navbar />
+          <Cart />
+          <Switch>
+            <Route path="/product/:id">
+              <ProductPage />
+            </Route>
+            <Route path="/">
+              <HomePage />
+            </Route> 
+          </Switch>
+        </Router>
+      </StyletronProvider>
+    </ShopProvider>
   );
 }
 

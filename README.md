@@ -1,28 +1,28 @@
-# Getting Started with Create React App
+# Shopify App in ReactJS
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## How to run?
 
 In the project directory, you can run:
 
+### `yarn install`
 ### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Resources/Packages Used
+- Shopify JS Buy SDK
+### `yarn add shopify-buy`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Atomize for transistions
+### `yarn add atomize react-transition-group`
 
-### `yarn build`
+- Basic react router
+### `yarn add react-router`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Styletron
+### `yarn add styletron-engine-atomic styletron-react`
+https://www.styletron.org/getting-started
